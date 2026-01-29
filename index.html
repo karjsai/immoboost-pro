@@ -22,15 +22,8 @@
         }
         .header h1 { font-size: 28px; margin-bottom: 5px; }
         .header p { color: #4ade80; font-size: 12px; }
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
+        .hero { text-align: center; padding: 40px 20px; }
+        .hero h2 { font-size: 36px; margin-bottom: 20px; line-height: 1.2; }
         .gradient-text {
             background: linear-gradient(to right, #c084fc, #f472b6);
             -webkit-background-clip: text;
@@ -57,10 +50,7 @@
             transition: all 0.3s;
             display: inline-block;
         }
-        .btn-upload:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+        .btn-upload:hover { transform: scale(1.05); }
         #fileInput { display: none; }
         .processing {
             display: none;
@@ -76,13 +66,8 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 30px;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .results {
-            display: none;
-            margin-top: 40px;
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .results { display: none; margin-top: 40px; }
         .comparison {
             display: grid;
             grid-template-columns: 1fr;
@@ -158,7 +143,7 @@
     <div class="header">
         <div class="container">
             <h1>⚡ ImmoBoost Pro</h1>
-            <p>IA Real-ESRGAN</p>
+            <p>IA GPT-4 Vision + DALL-E</p>
         </div>
     </div>
 
@@ -169,7 +154,7 @@
                 <span class="gradient-text">Vendez 3x plus vite</span>
             </h2>
             <p style="font-size: 18px; margin: 20px 0; color: #d1d5db;">
-                Upscaling 4x • Détails préservés • Qualité HD
+                Analyse IA • Retouche intelligente • Qualité professionnelle
             </p>
 
             <div class="upload-box">
@@ -178,14 +163,14 @@
                     📤 Améliorer ma photo avec l'IA
                 </button>
                 <p style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
-                    ✨ Traitement 10-30s • 🔒 Sécurisé • 💾 Téléchargement HD
+                    ✨ Traitement 15-30s • 🔒 Sécurisé • 💾 Téléchargement HD
                 </p>
             </div>
         </div>
 
         <div id="processingSection" class="processing">
             <div class="spinner"></div>
-            <h2 style="font-size: 24px; margin-bottom: 10px;">⚡ IA Real-ESRGAN en action...</h2>
+            <h2 style="font-size: 24px; margin-bottom: 10px;">⚡ IA en action...</h2>
             <p id="statusText" class="status-text">📤 Chargement...</p>
         </div>
 
@@ -196,7 +181,7 @@
                     <img id="beforeImg" alt="Avant">
                 </div>
                 <div class="image-box">
-                    <span class="label label-after">✨ APRÈS - 4x HD</span>
+                    <span class="label label-after">✨ APRÈS - IA</span>
                     <img id="afterImg" alt="Après">
                 </div>
             </div>
@@ -231,44 +216,21 @@
             updateStatus('📤 Envoi à l\'IA...');
 
             try {
-                const res1 = await fetch(BACKEND + '/api/enhance', {
+                updateStatus('🤖 Analyse GPT-4 Vision...');
+                
+                const res = await fetch(BACKEND + '/api/enhance', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({image: imgData})
                 });
 
-                if (!res1.ok) throw new Error('Erreur envoi');
-                const {predictionId} = await res1.json();
+                if (!res.ok) throw new Error('Erreur traitement');
+                
+                updateStatus('🎨 Amélioration DALL-E...');
+                const {output} = await res.json();
 
-                updateStatus('⚡ Amélioration IA en cours...');
-
-                let attempts = 0;
-                while (attempts < 120) {
-                    await sleep(2000);
-                    
-                    const res2 = await fetch(BACKEND + '/api/check', {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({predictionId})
-                    });
-
-                    const pred = await res2.json();
-
-                    if (pred.status === 'succeeded') {
-                        enhancedImg = pred.output;
-                        showResults();
-                        return;
-                    } else if (pred.status === 'failed') {
-                        throw new Error('IA échouée');
-                    }
-
-                    if (attempts % 3 === 0) {
-                        updateStatus(`⚡ Traitement... (${attempts * 2}s)`);
-                    }
-                    attempts++;
-                }
-
-                throw new Error('Timeout');
+                enhancedImg = output;
+                showResults();
             } catch (err) {
                 alert('❌ Erreur: ' + err.message);
                 reset();
@@ -294,7 +256,7 @@
         function download() {
             const a = document.createElement('a');
             a.href = enhancedImg;
-            a.download = 'immoboost-enhanced-4x.jpg';
+            a.download = 'immoboost-enhanced.jpg';
             a.click();
         }
 
@@ -303,10 +265,6 @@
             enhancedImg = null;
             document.getElementById('fileInput').value = '';
             showSection('upload');
-        }
-
-        function sleep(ms) {
-            return new Promise(r => setTimeout(r, ms));
         }
     </script>
 </body>
