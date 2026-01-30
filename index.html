@@ -143,7 +143,7 @@
     <div class="header">
         <div class="container">
             <h1>⚡ ImmoBoost Pro</h1>
-            <p>IA GPT-4 Vision + Juggernaut XL v7</p>
+            <p>IA GPT-4 Vision + Juggernaut XL v7 • Railway</p>
         </div>
     </div>
 
@@ -154,7 +154,7 @@
                 <span class="gradient-text">Vendez 3x plus vite</span>
             </h2>
             <p style="font-size: 18px; margin: 20px 0; color: #d1d5db;">
-                Analyse IA • Retouche intelligente • Qualité professionnelle
+                Analyse IA • Retouche intelligente • Qualité HD préservée
             </p>
 
             <div class="upload-box">
@@ -163,7 +163,7 @@
                     📤 Améliorer ma photo avec l'IA
                 </button>
                 <p style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
-                    ✨ Traitement 25-35s • 🔒 Sécurisé • 💾 Téléchargement HD
+                    ✨ Traitement 30-40s • 🔒 Sécurisé • 💾 Qualité maximale
                 </p>
             </div>
         </div>
@@ -181,7 +181,7 @@
                     <img id="beforeImg" alt="Avant">
                 </div>
                 <div class="image-box">
-                    <span class="label label-after">✨ APRÈS - IA</span>
+                    <span class="label label-after">✨ APRÈS - IA HD</span>
                     <img id="afterImg" alt="Après">
                 </div>
             </div>
@@ -193,40 +193,13 @@
     </div>
 
     <script>
-        const BACKEND = 'https://immoboost-backend.vercel.app';
+        // BACKEND RAILWAY - SANS LIMITE DE TAILLE !
+        const BACKEND = 'immoboost-backend-production.up.railway.app';
+        
         let originalImg = null;
         let enhancedImg = null;
 
         document.getElementById('fileInput').addEventListener('change', handleFile);
-
-        // FONCTION DE COMPRESSION D'IMAGE (VERSION HAUTE QUALITÉ)
-        async function compressImage(dataUrl, maxWidth, quality) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => {
-                    const canvas = document.createElement('canvas');
-                    let width = img.width;
-                    let height = img.height;
-                    
-                    // Redimensionner si trop large
-                    if (width > maxWidth) {
-                        height = (height * maxWidth) / width;
-                        width = maxWidth;
-                    }
-                    
-                    canvas.width = width;
-                    canvas.height = height;
-                    
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, width, height);
-                    
-                    // Compresser en JPEG avec qualité élevée
-                    const compressed = canvas.toDataURL('image/jpeg', quality);
-                    resolve(compressed);
-                };
-                img.src = dataUrl;
-            });
-        }
 
         async function handleFile(e) {
             const file = e.target.files[0];
@@ -239,13 +212,10 @@
             reader.onload = async (event) => {
                 const imageDataUrl = event.target.result;
                 
-                // Compression légère (2048px, qualité 90%)
-                console.log('📦 Compression de l\'image (2048px, qualité 90%)...');
-                const compressedImage = await compressImage(imageDataUrl, 2048, 0.9);
-                console.log('✅ Image compressée avec succès');
+                console.log('✅ Image chargée - AUCUNE compression (qualité maximale)');
                 
-                originalImg = imageDataUrl; // Garder l'originale pour l'affichage
-                await processImage(compressedImage); // Envoyer la compressée
+                originalImg = imageDataUrl;
+                await processImage(imageDataUrl); // Envoi direct sans compression !
             };
             reader.readAsDataURL(file);
         }
@@ -299,7 +269,7 @@
         function download() {
             const a = document.createElement('a');
             a.href = enhancedImg;
-            a.download = 'immoboost-enhanced-2k.jpg';
+            a.download = 'immoboost-enhanced-hd.jpg';
             a.click();
         }
 
