@@ -199,7 +199,7 @@
 
         document.getElementById('fileInput').addEventListener('change', handleFile);
 
-        // FONCTION DE COMPRESSION D'IMAGE
+        // FONCTION DE COMPRESSION D'IMAGE (VERSION HAUTE QUALITÉ)
         async function compressImage(dataUrl, maxWidth, quality) {
             return new Promise((resolve) => {
                 const img = new Image();
@@ -220,7 +220,7 @@
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, width, height);
                     
-                    // Compresser en JPEG avec qualité réduite
+                    // Compresser en JPEG avec qualité élevée
                     const compressed = canvas.toDataURL('image/jpeg', quality);
                     resolve(compressed);
                 };
@@ -239,9 +239,9 @@
             reader.onload = async (event) => {
                 const imageDataUrl = event.target.result;
                 
-                // Compression de l'image avant envoi
-                console.log('📦 Compression de l\'image...');
-                const compressedImage = await compressImage(imageDataUrl, 1024, 0.8);
+                // Compression légère (2048px, qualité 90%)
+                console.log('📦 Compression de l\'image (2048px, qualité 90%)...');
+                const compressedImage = await compressImage(imageDataUrl, 2048, 0.9);
                 console.log('✅ Image compressée avec succès');
                 
                 originalImg = imageDataUrl; // Garder l'originale pour l'affichage
@@ -299,7 +299,7 @@
         function download() {
             const a = document.createElement('a');
             a.href = enhancedImg;
-            a.download = 'immoboost-enhanced.jpg';
+            a.download = 'immoboost-enhanced-2k.jpg';
             a.click();
         }
 
