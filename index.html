@@ -17,13 +17,13 @@
             padding-bottom: 80px;
         }
 
-        /* HERO - RESSERRÉ MAX 720PX */
+        /* HERO - LOGO PLUS GROS + ESPACEMENTS RÉDUITS */
         .hero {
             background-image: url('images/hero-banner.png');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 35px 20px 45px;
+            padding: 20px 20px 40px;
             text-align: center;
             position: relative;
             display: flex;
@@ -50,24 +50,24 @@
         }
         
         .logo {
-            max-width: 300px;
-            width: 80%;
+            max-width: 420px;
+            width: 90%;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             filter: drop-shadow(0 5px 20px rgba(0,0,0,0.4));
         }
         
         .hero h1 {
             font-size: 26px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             line-height: 1.2;
             text-shadow: 0 3px 15px rgba(0,0,0,0.4);
         }
         
         .hero h2 {
             font-size: 15px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 400;
             opacity: 0.95;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -75,7 +75,7 @@
         
         .hero .value {
             font-size: 16px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 500;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
@@ -88,7 +88,7 @@
         
         .hero .counter {
             font-size: 13px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             padding: 7px 14px;
             background: rgba(239, 68, 68, 0.9);
             border-radius: 25px;
@@ -102,7 +102,7 @@
             justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-size: 13px;
             font-weight: 500;
         }
@@ -113,26 +113,6 @@
             padding: 7px 13px;
             border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .benefits-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-            text-align: left;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-        
-        .benefits-box p {
-            margin-bottom: 6px;
-        }
-        
-        .benefits-box p:last-child {
-            margin-bottom: 0;
         }
         
         /* BOUTON WHATSAPP FLOTTANT */
@@ -234,34 +214,34 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* STATS BAR */
+        /* STATS BAR - HAUTEUR RÉDUITE */
         .stats-bar {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 25px 20px;
+            padding: 18px 20px;
             text-align: center;
         }
         
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 18px;
+            gap: 15px;
             max-width: 750px;
             margin: 0 auto;
         }
         
         .stat-item {
-            padding: 12px;
+            padding: 8px;
         }
         
         .stat-number {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 900;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         
         .stat-label {
-            font-size: 13px;
+            font-size: 12px;
             opacity: 0.9;
         }
 
@@ -293,7 +273,7 @@
             margin-bottom: 30px;
         }
 
-        /* GALLERY */
+        /* GALLERY - EFFET HOVER/TOUCH */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -309,17 +289,29 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
         
         .gallery-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+        
+        .gallery-item:active {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
         }
         
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
         
         .gallery-label {
@@ -333,6 +325,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-label {
+            transform: scale(1.1);
         }
         
         .label-before {
@@ -696,10 +693,10 @@
                 display: none !important;
             }
             .hero {
-                padding: 60px 20px;
+                padding: 30px 20px 55px;
             }
             .logo {
-                max-width: 380px;
+                max-width: 500px;
             }
             .hero h1 {
                 font-size: 38px;
@@ -754,7 +751,7 @@
         </a>
     </div>
 
-    <!-- HERO - MAX 680PX -->
+    <!-- HERO - LOGO PLUS GROS + ESPACEMENTS RÉDUITS -->
     <section class="hero">
         <div class="hero-content">
             <img src="images/logo.png" alt="ImmoBoost Pro" class="logo">
@@ -775,15 +772,10 @@
             </a>
             
             <p class="cta-secondary">✅ Paiement uniquement si satisfait</p>
-            
-            <div class="benefits-box">
-                <p>⭐ <strong>Luminosité + Couleurs + Netteté</strong> qui attirent les acheteurs</p>
-                <p>📈 <strong>Plus de vues, plus de visites</strong>, plus de chances de vendre</p>
-            </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- STATS BAR - HAUTEUR RÉDUITE -->
     <section class="stats-bar">
         <div class="stats-grid">
             <div class="stat-item">
@@ -837,10 +829,10 @@
         </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- GALLERY - AVEC EFFETS HOVER/TOUCH -->
     <section class="section">
-        <h2 class="section-title">Des transformations réelles</h2>
-        <p class="section-subtitle">Photos envoyées par nos clients</p>
+        <h2 class="section-title">Nos réalisations pour nos clients</h2>
+        <p class="section-subtitle">Retouches professionnelles que nous avons effectuées</p>
         <p class="section-micro">🎨 Luminosité • Couleurs • Netteté • Perspective<br>Retouches réalistes • Photos extérieures & intérieures</p>
         
         <div class="gallery-grid">
