@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImmoBoost Pro - Retouche Photo Immobilière 3,99€</title>
     <meta name="description" content="Transformez vos photos immobilières en clichés professionnels. Graphiste expérimenté. Preview gratuite, paiement seulement si satisfait.">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -15,43 +16,77 @@
             overflow-x: hidden;
         }
 
-        /* HERO SECTION - OPTIMISÉ MOBILE */
+        /* HERO SECTION AVEC BANNIÈRE */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('images/hero-banner.png');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 60px 20px 40px;
+            padding: 40px 20px 50px;
             text-align: center;
             position: relative;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
-        .hero h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            line-height: 1.1;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        
+        .logo {
+            max-width: 400px;
+            width: 90%;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 5px 20px rgba(0,0,0,0.3));
         }
         
         .hero .tagline {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 15px;
             font-weight: 300;
-            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .hero .subtitle {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 30px;
-            opacity: 0.9;
             font-style: italic;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .hero-features {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
-            font-size: 14px;
+            margin-bottom: 35px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         /* BOUTON WHATSAPP FLOTTANT */
@@ -86,17 +121,16 @@
             50% { transform: scale(1.05); }
         }
         
-        /* Badge notification sur WhatsApp */
         .whatsapp-float::before {
-            content: 'GRATUIT';
+            content: '3,99€';
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: -8px;
+            right: -8px;
             background: #ef4444;
             color: white;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(239, 68, 68, 0.5);
         }
@@ -106,8 +140,8 @@
             display: inline-block;
             background: #25D366;
             color: white;
-            padding: 18px 35px;
-            font-size: 18px;
+            padding: 18px 40px;
+            font-size: 19px;
             font-weight: 700;
             border-radius: 50px;
             text-decoration: none;
@@ -123,18 +157,19 @@
         .cta-secondary {
             display: block;
             margin-top: 15px;
-            font-size: 14px;
-            opacity: 0.9;
+            font-size: 15px;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         /* SECTION */
         .section {
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
         
         .section-title {
             text-align: center;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 800;
             margin-bottom: 10px;
             color: #1e293b;
@@ -142,17 +177,20 @@
         
         .section-subtitle {
             text-align: center;
-            font-size: 16px;
+            font-size: 17px;
             color: #64748b;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        /* GALLERY - OPTIMISÉE MOBILE */
+        /* GALLERY */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .gallery-item {
@@ -160,6 +198,11 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
         }
         
         .gallery-item img {
@@ -178,6 +221,7 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
         }
         
         .label-before {
@@ -190,31 +234,22 @@
             color: white;
         }
 
-        /* COMPARISON SLIDER */
-        .comparison-pair {
-            margin-bottom: 40px;
-        }
-        
-        .comparison-pair h3 {
-            text-align: center;
-            font-size: 18px;
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        /* IMPACT SECTION - SIMPLIFIÉE MOBILE */
+        /* IMPACT */
         .impact-box {
             background: white;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .impact-header {
             padding: 15px;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 17px;
             text-align: center;
         }
         
@@ -238,14 +273,14 @@
         
         .impact-image {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
         }
         
         .impact-stats {
             padding: 15px;
             background: #f8fafc;
-            font-size: 14px;
+            font-size: 15px;
         }
         
         .stat-item {
@@ -260,60 +295,71 @@
             border-radius: 16px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             margin-bottom: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 800;
             margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
         
         .step-card h3 {
-            font-size: 20px;
+            font-size: 21px;
             margin-bottom: 10px;
+            color: #1e293b;
         }
         
         .step-card p {
             color: #64748b;
-            font-size: 15px;
+            font-size: 16px;
         }
 
         /* PRICING */
         .pricing-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
         
         .price-tag {
-            font-size: 60px;
+            font-size: 70px;
             font-weight: 900;
-            margin: 20px 0;
+            margin: 25px 0;
+            line-height: 1;
         }
         
         .price-tag small {
-            font-size: 24px;
+            font-size: 28px;
         }
         
         .features-list {
             list-style: none;
-            margin: 30px 0;
+            margin: 35px auto;
             text-align: left;
+            max-width: 380px;
         }
         
         .features-list li {
-            padding: 10px 0;
-            font-size: 16px;
+            padding: 12px 0;
+            font-size: 17px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
         }
 
         /* TRUST */
@@ -324,17 +370,20 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             margin-bottom: 20px;
             text-align: center;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .trust-badge h3 {
-            font-size: 20px;
+            font-size: 21px;
             color: #667eea;
             margin-bottom: 8px;
         }
         
         .trust-badge p {
             color: #64748b;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         /* FOOTER */
@@ -345,28 +394,39 @@
             text-align: center;
         }
         
+        .footer-logo {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
         .footer p {
             opacity: 0.8;
             margin-bottom: 8px;
-            font-size: 14px;
+            font-size: 15px;
         }
 
-        /* DESKTOP */
+        /* RESPONSIVE */
         @media (min-width: 768px) {
             .hero {
-                padding: 100px 20px 60px;
+                padding: 80px 20px;
+                min-height: 600px;
             }
-            .hero h1 {
-                font-size: 48px;
+            .logo {
+                max-width: 500px;
             }
             .hero .tagline {
-                font-size: 22px;
+                font-size: 26px;
+            }
+            .hero .subtitle {
+                font-size: 20px;
             }
             .section {
-                padding: 60px 20px;
+                padding: 70px 20px;
             }
             .section-title {
-                font-size: 38px;
+                font-size: 40px;
             }
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -378,7 +438,7 @@
                 font-size: 45px;
             }
             .impact-image {
-                height: 300px;
+                height: 320px;
             }
         }
         
@@ -391,68 +451,70 @@
 </head>
 <body>
     <!-- BOUTON WHATSAPP FLOTTANT -->
-    <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+    <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière.%20📸" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
         <svg viewBox="0 0 32 32" fill="currentColor" width="45" height="45">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.923 0-7.435 6.049-13.485 13.485-13.485s13.485 6.049 13.485 13.485c0 7.436-6.049 13.485-13.485 13.485zM21.858 18.868c-0.377-0.189-2.229-1.099-2.574-1.225-0.346-0.125-0.598-0.189-0.849 0.189-0.251 0.377-0.975 1.225-1.196 1.476s-0.441 0.283-0.818 0.094c-0.377-0.189-1.593-0.587-3.033-1.872-1.121-1-1.879-2.237-2.099-2.614s-0.024-0.581 0.166-0.77c0.17-0.166 0.377-0.441 0.565-0.661 0.189-0.22 0.251-0.377 0.377-0.628 0.125-0.251 0.063-0.472-0.031-0.661s-0.849-2.043-1.162-2.8c-0.304-0.735-0.613-0.637-0.849-0.649-0.22-0.011-0.472-0.013-0.723-0.013s-0.661 0.094-1.008 0.472c-0.346 0.377-1.321 1.288-1.321 3.142s1.351 3.645 1.54 3.896c0.189 0.251 2.647 4.041 6.41 5.667 0.895 0.387 1.593 0.617 2.138 0.791 0.898 0.283 1.717 0.245 2.363 0.148 0.721-0.108 2.229-0.912 2.543-1.791s0.314-1.635 0.22-1.791c-0.094-0.157-0.346-0.251-0.723-0.441z"/>
         </svg>
     </a>
 
-    <!-- HERO -->
+    <!-- HERO AVEC LOGO + BANNIÈRE -->
     <section class="hero">
-        <h1>✨ ImmoBoost Pro</h1>
-        <p class="tagline">Photos immobilières professionnelles</p>
-        <p class="subtitle">Par un graphiste expérimenté</p>
-        
-        <div class="hero-features">
-            <div>💰 3,99€</div>
-            <div>⚡ 12h</div>
-            <div>✅ Preview gratuite</div>
+        <div class="hero-content">
+            <img src="images/logo.png" alt="ImmoBoost Pro" class="logo">
+            <p class="tagline">Photos immobilières professionnelles</p>
+            <p class="subtitle">Par un graphiste expérimenté</p>
+            
+            <div class="hero-features">
+                <div class="hero-feature">💰 3,99€ par photo</div>
+                <div class="hero-feature">⚡ Livraison 12h</div>
+                <div class="hero-feature">✅ Preview gratuite</div>
+            </div>
+            
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière.%20📸" class="cta-primary">
+                📱 Essayer maintenant
+            </a>
+            
+            <p class="cta-secondary">Paiement seulement si satisfait</p>
         </div>
-        
-        <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="cta-primary">
-            📱 Essayer GRATUITEMENT
-        </a>
-        
-        <p class="cta-secondary">Paiement seulement si satisfait</p>
     </section>
 
-    <!-- GALLERY - AVANT/APRÈS IMMÉDIAT -->
+    <!-- GALLERY -->
     <section class="section">
         <h2 class="section-title">Transformations réelles</h2>
-        <p class="section-subtitle">Retouches par notre graphiste</p>
+        <p class="section-subtitle">Retouches par notre graphiste professionnel</p>
         
         <div class="gallery-grid">
             <div class="gallery-item">
                 <span class="gallery-label label-before">❌ AVANT</span>
-                <img src="images/avant1.jpg" alt="Maison avant" loading="lazy">
+                <img src="images/avant1.jpg" alt="Maison avant retouche" loading="lazy">
             </div>
             <div class="gallery-item">
                 <span class="gallery-label label-after">✨ APRÈS</span>
-                <img src="images/apres1.png" alt="Maison après" loading="lazy">
+                <img src="images/apres1.png" alt="Maison après retouche" loading="lazy">
             </div>
             
             <div class="gallery-item">
                 <span class="gallery-label label-before">❌ AVANT</span>
-                <img src="images/avant2.jpg" alt="Maison avant" loading="lazy">
+                <img src="images/avant2.jpg" alt="Maison avant retouche" loading="lazy">
             </div>
             <div class="gallery-item">
                 <span class="gallery-label label-after">✨ APRÈS</span>
-                <img src="images/apres2.png" alt="Maison après" loading="lazy">
+                <img src="images/apres2.png" alt="Maison après retouche" loading="lazy">
             </div>
             
             <div class="gallery-item">
                 <span class="gallery-label label-before">❌ AVANT</span>
-                <img src="images/avant3.jpg" alt="Maison avant" loading="lazy">
+                <img src="images/avant3.jpg" alt="Maison avant retouche" loading="lazy">
             </div>
             <div class="gallery-item">
                 <span class="gallery-label label-after">✨ APRÈS</span>
-                <img src="images/apres3.png" alt="Maison après" loading="lazy">
+                <img src="images/apres3.png" alt="Maison après retouche" loading="lazy">
             </div>
         </div>
         
         <div style="text-align: center;">
-            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="cta-primary">
-                📱 Essayer maintenant
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière.%20📸" class="cta-primary">
+                📱 Commander maintenant
             </a>
         </div>
     </section>
@@ -460,11 +522,11 @@
     <!-- IMPACT -->
     <section class="section" style="background: #f8fafc;">
         <h2 class="section-title">L'impact sur vos ventes</h2>
-        <p class="section-subtitle">Une photo pro fait la différence</p>
+        <p class="section-subtitle">Une photo pro change tout</p>
         
         <div class="impact-box impact-before">
             <div class="impact-header">❌ AVANT ImmoBoost</div>
-            <img src="images/avant1.jpg" alt="Avant" class="impact-image">
+            <img src="images/avant1.jpg" alt="Photo avant" class="impact-image">
             <div class="impact-stats">
                 <div class="stat-item">📅 En ligne depuis 4 mois</div>
                 <div class="stat-item">👁️ 45 vues • 2 visites</div>
@@ -472,11 +534,11 @@
             </div>
         </div>
 
-        <div style="text-align: center; font-size: 28px; font-weight: 800; color: #667eea; margin: 20px 0;">VS</div>
+        <div style="text-align: center; font-size: 32px; font-weight: 800; color: #667eea; margin: 25px 0;">VS</div>
 
         <div class="impact-box impact-after">
             <div class="impact-header">✅ APRÈS ImmoBoost</div>
-            <img src="images/apres1.png" alt="Après" class="impact-image">
+            <img src="images/apres1.png" alt="Photo après" class="impact-image">
             <div class="impact-stats">
                 <div class="stat-item">📅 Vendue en 3 semaines !</div>
                 <div class="stat-item">👁️ 380 vues • 18 visites</div>
@@ -493,34 +555,34 @@
         <div class="step-card">
             <div class="step-number">1</div>
             <h3>Envoie ta photo</h3>
-            <p>Sur WhatsApp, envoie ta photo</p>
+            <p>Contacte-nous sur WhatsApp et envoie ta photo</p>
         </div>
         
         <div class="step-card">
             <div class="step-number">2</div>
             <h3>Reçois la preview</h3>
-            <p>Sous 12h, photo retouchée (GRATUIT)</p>
+            <p>Sous 12h, tu reçois ta photo retouchée avec watermark (GRATUIT)</p>
         </div>
         
         <div class="step-card">
             <div class="step-number">3</div>
             <h3>Paie si satisfait</h3>
-            <p>3,99€ pour la version HD</p>
+            <p>Satisfait ? Paie 3,99€ pour la version HD sans watermark</p>
         </div>
     </section>
 
     <!-- PRICING -->
     <section class="pricing-section">
-        <h2 style="font-size: 32px; margin-bottom: 15px;">Tarif transparent</h2>
+        <h2 style="font-size: 36px; margin-bottom: 15px;">Tarif transparent</h2>
         <div class="price-tag">3,99€ <small>/photo</small></div>
-        <ul class="features-list" style="max-width: 350px; margin: 30px auto;">
-            <li>✅ Retouche par graphiste</li>
-            <li>✅ Preview gratuite</li>
-            <li>✅ Livraison sous 12h</li>
-            <li>✅ Version HD</li>
+        <ul class="features-list">
+            <li>✅ Retouche professionnelle par graphiste</li>
+            <li>✅ Preview gratuite avec watermark</li>
+            <li>✅ Livraison sous 12h maximum</li>
+            <li>✅ Version HD sans watermark</li>
             <li>✅ Satisfait ou remboursé</li>
         </ul>
-        <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="cta-primary">
+        <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière.%20📸" class="cta-primary">
             Commencer maintenant
         </a>
     </section>
@@ -529,20 +591,20 @@
     <section class="section" style="background: #f8fafc;">
         <div class="trust-badge">
             <h3>🎨 Graphiste expérimenté</h3>
-            <p>Retouches pro pour l'immobilier</p>
+            <p>Retouches professionnelles pour l'immobilier</p>
         </div>
         <div class="trust-badge">
-            <h3>🇫🇷 France entière</h3>
-            <p>Service disponible partout</p>
+            <h3>🇫🇷 Service France entière</h3>
+            <p>Disponible partout en France</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <h3 style="font-size: 22px; margin-bottom: 15px;">ImmoBoost Pro</h3>
-        <p>Retouche photo immobilière</p>
+        <img src="images/logo.png" alt="ImmoBoost Pro" class="footer-logo">
+        <p>Retouche photo immobilière professionnelle</p>
         <p>📱 WhatsApp: +33 7 60 12 55 98</p>
-        <p style="margin-top: 30px; opacity: 0.6;">&copy; 2026 ImmoBoost Pro</p>
+        <p style="margin-top: 30px; opacity: 0.6;">&copy; 2026 ImmoBoost Pro - Graphiste professionnel</p>
     </footer>
 </body>
 </html>
