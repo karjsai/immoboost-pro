@@ -3,430 +3,578 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImmoBoost Pro - Retouche Photo Immobilière 5€</title>
+    <title>ImmoBoost Pro - Retouche Photo Immobilière 3,99€</title>
+    <meta name="description" content="Transformez vos photos immobilières en clichés professionnels. Graphiste expérimenté. Preview gratuite, paiement seulement si satisfait.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             color: #1e293b;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        
+
         /* HERO SECTION */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 100px 20px;
+            padding: 120px 20px 80px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 56px;
             font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1.1;
         }
-        .hero .subtitle {
+        
+        .hero .tagline {
             font-size: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
+            font-weight: 300;
             opacity: 0.95;
         }
-        .hero .features {
+        
+        .hero .subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .hero-features {
             display: flex;
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
             margin-bottom: 50px;
         }
-        .hero .feature {
+        
+        .hero-feature {
             font-size: 18px;
+            font-weight: 500;
         }
         
+        .cta-primary {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 22px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(37, 211, 102, 0.5);
+        }
+        
+        .cta-secondary {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            opacity: 0.9;
+            color: white;
+        }
+
         /* CONTAINER */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 20px;
         }
-        
+
         /* SECTION TITLES */
         .section-title {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            font-weight: 700;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #1e293b;
         }
         
-        /* GALLERY */
-        .gallery {
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* IMPACT SECTION */
+        .impact-section {
+            background: linear-gradient(to bottom, #f8fafc 0%, white 100%);
+            padding: 80px 20px;
+        }
+        
+        .comparison-mockup {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .gallery-item {
-            position: relative;
+        
+        @media (min-width: 900px) {
+            .comparison-mockup { grid-template-columns: 1fr auto 1fr; }
+        }
+        
+        .mockup-card {
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .gallery-item img {
-            width: 100%;
-            display: block;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        .gallery-label {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 14px;
+        
+        .mockup-card:hover {
+            transform: translateY(-5px);
         }
         
+        .mockup-before {
+            border: 3px solid #ef4444;
+        }
+        
+        .mockup-after {
+            border: 3px solid #22c55e;
+        }
+        
+        .mockup-header {
+            padding: 20px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .mockup-before .mockup-header {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+        
+        .mockup-after .mockup-header {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+        
+        .mockup-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .mockup-stats {
+            padding: 20px;
+            background: #f8fafc;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #667eea;
+        }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .label-before {
+            background: rgba(239, 68, 68, 0.95);
+            color: white;
+        }
+        
+        .label-after {
+            background: rgba(34, 197, 94, 0.95);
+            color: white;
+        }
+
         /* HOW IT WORKS */
-        .steps {
+        .steps-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
-        .step {
+        
+        .step-card {
             text-align: center;
-            padding: 30px;
-            background: #f8fafc;
-            border-radius: 12px;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
         }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+        
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-        .step h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
         
-        /* CONTACT OPTIONS */
-        .contact-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
+        .step-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1e293b;
         }
-        .contact-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        .contact-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
-        }
-        .contact-card h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .contact-card p {
+        
+        .step-card p {
             color: #64748b;
-            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
         }
-        
-        /* BUTTONS */
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 18px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary {
+
+        /* PRICING */
+        .pricing-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-        .btn-whatsapp:hover {
-            background: #128C7E;
+            padding: 80px 20px;
+            text-align: center;
         }
         
-        /* FORM */
-        .upload-form {
+        .pricing-box {
             max-width: 600px;
             margin: 0 auto;
-            background: #f8fafc;
-            padding: 40px;
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
-        .form-group {
-            margin-bottom: 20px;
+        
+        .price-tag {
+            font-size: 80px;
+            font-weight: 900;
+            margin: 30px 0;
+            line-height: 1;
         }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
+        
+        .price-tag small {
+            font-size: 32px;
             font-weight: 600;
         }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        .file-upload {
-            border: 2px dashed #cbd5e1;
-            padding: 40px;
-            text-align: center;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .file-upload:hover {
-            border-color: #667eea;
-            background: #f1f5f9;
-        }
-        .file-upload input {
-            display: none;
-        }
         
-        /* PRICING */
-        .pricing {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 40px;
-            border-radius: 16px;
-            margin-bottom: 80px;
-        }
-        .pricing .price {
-            font-size: 72px;
-            font-weight: 800;
-            margin: 20px 0;
-        }
-        .pricing .features-list {
+        .features-list {
             list-style: none;
-            margin: 30px 0;
-        }
-        .pricing .features-list li {
-            font-size: 18px;
-            margin: 10px 0;
+            margin: 40px 0;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
+        .features-list li {
+            padding: 12px 0;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* TRUST SECTION */
+        .trust-section {
+            background: #f8fafc;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .trust-badge {
+            display: inline-block;
+            background: white;
+            padding: 30px 50px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 20px;
+        }
+        
+        .trust-badge h3 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
         /* FOOTER */
         .footer {
             background: #1e293b;
             color: white;
+            padding: 60px 20px 30px;
             text-align: center;
-            padding: 40px 20px;
         }
         
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero .subtitle { font-size: 18px; }
-            .section-title { font-size: 28px; }
-            .pricing .price { font-size: 48px; }
-        }
-        
-        /* SUCCESS MESSAGE */
-        .success-message {
-            display: none;
-            background: #10b981;
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
+            .hero h1 { font-size: 36px; }
+            .hero .tagline { font-size: 20px; }
+            .section-title { font-size: 32px; }
+            .price-tag { font-size: 60px; }
+            .cta-primary { padding: 18px 40px; font-size: 18px; }
         }
     </style>
 </head>
 <body>
     <!-- HERO -->
     <section class="hero">
-        <h1>✨ ImmoBoost Pro</h1>
-        <p class="subtitle">Transformez vos photos immobilières en clichés professionnels</p>
-        <div class="features">
-            <div class="feature">💰 5€ par photo</div>
-            <div class="feature">⚡ Livraison sous 12h</div>
-            <div class="feature">✅ Satisfait ou remboursé</div>
+        <div class="hero-content">
+            <h1>✨ ImmoBoost Pro</h1>
+            <p class="tagline">Transformez vos photos immobilières en clichés professionnels</p>
+            <p class="subtitle">Par un graphiste expérimenté</p>
+            
+            <div class="hero-features">
+                <div class="hero-feature">💰 3,99€ par photo</div>
+                <div class="hero-feature">⚡ Livraison sous 12h</div>
+                <div class="hero-feature">✅ Preview gratuite</div>
+            </div>
+            
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="cta-primary">
+                📱 Envoie ta photo, reçois-la retouchée GRATUITEMENT
+            </a>
+            
+            <p class="cta-secondary">Paiement seulement si tu es satisfait(e)</p>
         </div>
-        <a href="#contact" class="btn btn-primary">Commencer maintenant</a>
+    </section>
+
+    <!-- IMPACT SECTION -->
+    <section class="impact-section">
+        <div class="container">
+            <h2 class="section-title">L'impact réel sur vos ventes</h2>
+            <p class="section-subtitle">Une photo professionnelle peut faire toute la différence</p>
+            
+            <div class="comparison-mockup">
+                <!-- AVANT -->
+                <div class="mockup-card mockup-before">
+                    <div class="mockup-header">❌ AVANT ImmoBoost</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23cbd5e1' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2364748b'%3EPhoto originale%3C/text%3E%3C/svg%3E" alt="Avant" class="mockup-image">
+                    <div class="mockup-stats">
+                        <div class="stat-item">📅 En ligne depuis 4 mois</div>
+                        <div class="stat-item">👁️ 45 vues • 2 visites</div>
+                        <div class="stat-item">❌ Aucune offre</div>
+                    </div>
+                </div>
+
+                <div class="vs-divider">VS</div>
+
+                <!-- APRÈS -->
+                <div class="mockup-card mockup-after">
+                    <div class="mockup-header">✅ APRÈS ImmoBoost</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB'/%3E%3Cstop offset='100%25' style='stop-color:%234A90E2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky)' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='white'%3EPhoto professionnelle%3C/text%3E%3C/svg%3E" alt="Après" class="mockup-image">
+                    <div class="mockup-stats">
+                        <div class="stat-item">📅 Vendue en 3 semaines !</div>
+                        <div class="stat-item">👁️ 380 vues • 18 visites</div>
+                        <div class="stat-item">✅ Prix de vente atteint</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- GALLERY -->
     <section class="container">
         <h2 class="section-title">Exemples de transformations</h2>
-        <div class="gallery">
+        <p class="section-subtitle">Retouches réalisées par notre graphiste professionnel</p>
+        
+        <div class="gallery-grid">
             <div class="gallery-item">
-                <span class="gallery-label">❌ AVANT</span>
-                <img src="https://via.placeholder.com/400x300/94a3b8/ffffff?text=Photo+AVANT" alt="Avant">
+                <span class="gallery-label label-before">❌ AVANT</span>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect fill='%23cbd5e1' width='400' height='350'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%2364748b'%3EMaison rose - Avant%3C/text%3E%3C/svg%3E" alt="Avant 1">
             </div>
             <div class="gallery-item">
-                <span class="gallery-label">✨ APRÈS</span>
-                <img src="https://via.placeholder.com/400x300/667eea/ffffff?text=Photo+APRES" alt="Après">
+                <span class="gallery-label label-after">✨ APRÈS</span>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB'/%3E%3Cstop offset='100%25' style='stop-color:%234A90E2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky)' width='400' height='350'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='white'%3EMaison rose - Après%3C/text%3E%3C/svg%3E" alt="Après 1">
+            </div>
+            
+            <div class="gallery-item">
+                <span class="gallery-label label-before">❌ AVANT</span>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect fill='%23cbd5e1' width='400' height='350'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%2364748b'%3EMaison blanche - Avant%3C/text%3E%3C/svg%3E" alt="Avant 2">
             </div>
             <div class="gallery-item">
-                <span class="gallery-label">❌ AVANT</span>
-                <img src="https://via.placeholder.com/400x300/94a3b8/ffffff?text=Photo+AVANT+2" alt="Avant">
+                <span class="gallery-label label-after">✨ APRÈS</span>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Cdefs%3E%3ClinearGradient id='sky2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB'/%3E%3Cstop offset='100%25' style='stop-color:%234A90E2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky2)' width='400' height='350'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='white'%3EMaison blanche - Après%3C/text%3E%3C/svg%3E" alt="Après 2">
+            </div>
+            
+            <div class="gallery-item">
+                <span class="gallery-label label-before">❌ AVANT</span>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect fill='%23cbd5e1' width='400' height='350'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%2364748b'%3EMaison Expertimo - Avant%3C/text%3E%3C/svg%3E" alt="Avant 3">
             </div>
             <div class="gallery-item">
-                <span class="gallery-label">✨ APRÈS</span>
-                <img src="https://via.placeholder.com/400x300/667eea/ffffff?text=Photo+APRES+2" alt="Après">
+                <span class="gallery-label label-after">✨ APRÈS</span>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Cdefs%3E%3ClinearGradient id='sky3' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB'/%3E%3Cstop offset='100%25' style='stop-color:%234A90E2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky3)' width='400' height='350'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='white'%3EMaison Expertimo - Après%3C/text%3E%3C/svg%3E" alt="Après 3">
             </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="cta-primary">
+                📱 Essayer gratuitement maintenant
+            </a>
         </div>
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="container" style="background: #f8fafc; padding: 80px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title">Comment ça marche ?</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Envoyez votre photo</h3>
-                    <p>Via WhatsApp ou formulaire ci-dessous</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Recevez la preview</h3>
-                    <p>Version retouchée avec watermark sous 12h</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Validez le résultat</h3>
-                    <p>Satisfait ? Payez 5€ seulement</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Téléchargez en HD</h3>
-                    <p>Recevez la photo haute définition</p>
-                </div>
+    <section class="container" style="background: #f8fafc; padding: 80px 20px; margin: 80px 0; border-radius: 30px;">
+        <h2 class="section-title">Comment ça marche ?</h2>
+        <p class="section-subtitle">Un processus simple et transparent</p>
+        
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Envoie ta photo</h3>
+                <p>Contacte-nous sur WhatsApp et envoie ta photo immobilière</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Reçois la preview</h3>
+                <p>Sous 12h, tu reçois ta photo retouchée avec watermark (GRATUIT)</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Valide le résultat</h3>
+                <p>Satisfait(e) ? Paie 3,99€ pour la version HD sans watermark</p>
             </div>
         </div>
-    </section>
-
-    <!-- CONTACT OPTIONS -->
-    <section class="container" id="contact">
-        <h2 class="section-title">Choisissez votre méthode</h2>
-        <div class="contact-options">
-            <!-- WHATSAPP -->
-            <div class="contact-card">
-                <h3>📱 Via WhatsApp</h3>
-                <p>Envoi instantané et réponse rapide</p>
-                <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20une%20photo%20immobilière." class="btn btn-whatsapp">
-                    Envoyer sur WhatsApp
-                </a>
-            </div>
-
-            <!-- FORM -->
-            <div class="contact-card">
-                <h3>🌐 Via le site</h3>
-                <p>Téléchargez votre photo ici</p>
-                <button onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" class="btn btn-primary">
-                    Uploader ma photo
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- UPLOAD FORM -->
-    <section class="container" id="upload-section">
-        <h2 class="section-title">Uploadez votre photo</h2>
-        <form class="upload-form" id="uploadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="name">Votre nom *</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Votre email *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label>Votre photo immobilière *</label>
-                <div class="file-upload" onclick="document.getElementById('photo').click()">
-                    <input type="file" id="photo" name="photo" accept="image/*" required onchange="displayFileName(this)">
-                    <p id="file-text">📸 Cliquez pour sélectionner votre photo</p>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-                Envoyer ma photo
-            </button>
-            <div class="success-message" id="successMessage">
-                ✅ Photo envoyée ! Vous recevrez votre preview retouchée par email sous 12h.
-            </div>
-        </form>
     </section>
 
     <!-- PRICING -->
-    <section class="container">
-        <div class="pricing">
-            <h2>Tarif simple et transparent</h2>
-            <div class="price">5€</div>
-            <p style="font-size: 20px;">par photo retouchée</p>
+    <section class="pricing-section">
+        <h2 style="font-size: 42px; margin-bottom: 20px;">Tarif simple et transparent</h2>
+        <div class="pricing-box">
+            <div class="price-tag">3,99€ <small>/photo</small></div>
             <ul class="features-list">
-                <li>✅ Retouche professionnelle</li>
-                <li>✅ Livraison sous 12h</li>
-                <li>✅ Preview gratuite avant paiement</li>
-                <li>✅ Qualité HD garantie</li>
+                <li>✅ Retouche professionnelle par graphiste</li>
+                <li>✅ Preview gratuite avec watermark</li>
+                <li>✅ Livraison sous 12h maximum</li>
+                <li>✅ Version HD sans watermark</li>
                 <li>✅ Satisfait ou remboursé</li>
             </ul>
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20faire%20retoucher%20ma%20photo%20immobilière%20gratuitement.%20📸" class="cta-primary">
+                Commencer maintenant
+            </a>
+        </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-badge">
+                <h3>🎨 Graphiste expérimenté</h3>
+                <p>Retouches professionnelles pour l'immobilier</p>
+            </div>
+            <div class="trust-badge">
+                <h3>🇫🇷 Service France entière</h3>
+                <p>Disponible partout en France</p>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 ImmoBoost Pro - Retouche photo immobilière professionnelle</p>
-        <p style="margin-top: 10px; opacity: 0.7;">contact@immoboost-pro.com</p>
+        <div class="footer-content">
+            <h3>ImmoBoost Pro</h3>
+            <p>Retouche photo immobilière professionnelle</p>
+            <p>📱 WhatsApp: +33 7 60 12 55 98</p>
+            <p style="margin-top: 40px; opacity: 0.6;">&copy; 2026 ImmoBoost Pro - Graphiste professionnel</p>
+        </div>
     </footer>
-
-    <script>
-        function displayFileName(input) {
-            const fileName = input.files[0]?.name;
-            if (fileName) {
-                document.getElementById('file-text').textContent = `✅ ${fileName}`;
-            }
-        }
-
-        // Success message after form submit
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'block';
-                document.getElementById('uploadForm').reset();
-                document.getElementById('file-text').textContent = '📸 Cliquez pour sélectionner votre photo';
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
