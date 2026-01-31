@@ -14,6 +14,7 @@
             color: #1e293b;
             line-height: 1.6;
             overflow-x: hidden;
+            padding-bottom: 80px;
         }
 
         /* HERO */
@@ -81,9 +82,8 @@
         }
         
         .hero .social-proof {
-            font-size: 14px;
+            font-size: 16px;
             margin-bottom: 30px;
-            opacity: 0.9;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
@@ -150,6 +150,31 @@
             box-shadow: 0 2px 10px rgba(239, 68, 68, 0.5);
         }
 
+        /* CTA STICKY MOBILE */
+        .cta-sticky {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+            text-align: center;
+        }
+        
+        .cta-sticky.visible {
+            display: block;
+        }
+        
+        .cta-sticky .cta-primary {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 30px;
+            font-size: 17px;
+        }
+
         /* CTA */
         .cta-primary {
             display: inline-block;
@@ -209,7 +234,7 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 25px;
+            gap: 30px;
             margin-bottom: 40px;
             max-width: 1200px;
             margin-left: auto;
@@ -255,6 +280,26 @@
         .label-after {
             background: rgba(34, 197, 94, 0.95);
             color: white;
+        }
+        
+        .gallery-caption {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #64748b;
+            background: #f8fafc;
+            border-radius: 0 0 16px 16px;
+            margin-top: -5px;
+        }
+        
+        .gallery-caption.before {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .gallery-caption.after {
+            color: #16a34a;
+            font-weight: 600;
         }
 
         /* IMPACT */
@@ -319,18 +364,99 @@
         .impact-stats {
             padding: 20px;
             background: #f8fafc;
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 16px;
+            line-height: 2;
+        }
+        
+        .stat-bad {
+            color: #dc2626;
+        }
+        
+        .stat-good {
+            color: #16a34a;
+            font-weight: 600;
         }
         
         .punchline {
             text-align: center;
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 700;
             color: #667eea;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 16px;
+            border: 2px solid #667eea;
+        }
+
+        /* COMPARISON TABLE */
+        .comparison-table {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .price-highlight {
+            font-size: 24px;
+            font-weight: 800;
+            color: #22c55e;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .testimonial-card {
+            background: white;
             padding: 25px;
-            background: #f8fafc;
-            border-radius: 12px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1e293b;
         }
 
         /* STEPS */
@@ -378,7 +504,7 @@
         }
         
         .price-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
         
@@ -474,6 +600,12 @@
 
         /* RESPONSIVE */
         @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+            .cta-sticky {
+                display: none !important;
+            }
             .hero {
                 padding: 80px 20px;
             }
@@ -521,11 +653,18 @@
 </head>
 <body>
     <!-- BOUTON WHATSAPP FLOTTANT -->
-    <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20recevoir%20une%20preview%20gratuite%20pour%20ma%20photo%20immobilière.%20📸" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+    <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20voir%20ma%20preview%20gratuite%20maintenant.%20📸" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
         <svg viewBox="0 0 32 32" fill="currentColor" width="45" height="45">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.923 0-7.435 6.049-13.485 13.485-13.485s13.485 6.049 13.485 13.485c0 7.436-6.049 13.485-13.485 13.485zM21.858 18.868c-0.377-0.189-2.229-1.099-2.574-1.225-0.346-0.125-0.598-0.189-0.849 0.189-0.251 0.377-0.975 1.225-1.196 1.476s-0.441 0.283-0.818 0.094c-0.377-0.189-1.593-0.587-3.033-1.872-1.121-1-1.879-2.237-2.099-2.614s-0.024-0.581 0.166-0.77c0.17-0.166 0.377-0.441 0.565-0.661 0.189-0.22 0.251-0.377 0.377-0.628 0.125-0.251 0.063-0.472-0.031-0.661s-0.849-2.043-1.162-2.8c-0.304-0.735-0.613-0.637-0.849-0.649-0.22-0.011-0.472-0.013-0.723-0.013s-0.661 0.094-1.008 0.472c-0.346 0.377-1.321 1.288-1.321 3.142s1.351 3.645 1.54 3.896c0.189 0.251 2.647 4.041 6.41 5.667 0.895 0.387 1.593 0.617 2.138 0.791 0.898 0.283 1.717 0.245 2.363 0.148 0.721-0.108 2.229-0.912 2.543-1.791s0.314-1.635 0.22-1.791c-0.094-0.157-0.346-0.251-0.723-0.441z"/>
         </svg>
     </a>
+
+    <!-- CTA STICKY MOBILE -->
+    <div class="cta-sticky" id="ctaSticky">
+        <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20voir%20ma%20preview%20gratuite%20maintenant.%20📸" class="cta-primary">
+            📱 Voir ma preview gratuite
+        </a>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -534,7 +673,7 @@
             <h1>Vendez votre bien plus vite grâce à des photos immobilières professionnelles</h1>
             <h2>Déjà utilisé par des particuliers et agences immobilières partout en France</h2>
             <p class="value">Retouches réalisées par un graphiste spécialisé immobilier,<br>pour seulement 3,99€ par photo</p>
-            <p class="social-proof">⭐ Déjà 500+ photos retouchées • Clients particuliers & agences</p>
+            <p class="social-proof">⭐⭐⭐⭐⭐ Déjà 500+ photos retouchées • Clients particuliers & agences</p>
             
             <div class="hero-bullets">
                 <div class="hero-bullet">💰 3,99€ / photo</div>
@@ -542,8 +681,8 @@
                 <div class="hero-bullet">👀 Preview gratuite</div>
             </div>
             
-            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20recevoir%20une%20preview%20gratuite%20pour%20ma%20photo%20immobilière.%20📸" class="cta-primary">
-                🚀 Recevoir une preview gratuite
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20voir%20ma%20preview%20gratuite%20maintenant.%20📸" class="cta-primary">
+                🚀 Voir ma preview gratuite maintenant
             </a>
             
             <p class="cta-secondary">✅ Paiement uniquement si satisfait • Aucun engagement</p>
@@ -557,36 +696,60 @@
         <p class="section-micro">🎨 Luminosité • Couleurs • Netteté • Perspective<br>Retouches réalistes, jamais artificielles</p>
         
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <span class="gallery-label label-before">❌ AVANT</span>
-                <img src="images/avant1.jpg" alt="Photo avant retouche" loading="lazy">
+            <div>
+                <div class="gallery-item">
+                    <span class="gallery-label label-before">❌ AVANT</span>
+                    <img src="images/avant1.jpg" alt="Photo avant retouche" loading="lazy">
+                </div>
+                <div class="gallery-caption before">Sombre, ciel gris, peu attractif</div>
             </div>
-            <div class="gallery-item">
-                <span class="gallery-label label-after">✨ APRÈS</span>
-                <img src="images/apres1.png" alt="Photo après retouche" loading="lazy">
-            </div>
-            
-            <div class="gallery-item">
-                <span class="gallery-label label-before">❌ AVANT</span>
-                <img src="images/avant2.jpg" alt="Photo avant retouche" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <span class="gallery-label label-after">✨ APRÈS</span>
-                <img src="images/apres2.png" alt="Photo après retouche" loading="lazy">
+            <div>
+                <div class="gallery-item">
+                    <span class="gallery-label label-after">✨ APRÈS</span>
+                    <img src="images/apres1.png" alt="Photo après retouche" loading="lazy">
+                </div>
+                <div class="gallery-caption after">Lumineux, ciel bleu, attractif pour acheteurs</div>
             </div>
             
-            <div class="gallery-item">
-                <span class="gallery-label label-before">❌ AVANT</span>
-                <img src="images/avant3.jpg" alt="Photo avant retouche" loading="lazy">
+            <div>
+                <div class="gallery-item">
+                    <span class="gallery-label label-before">❌ AVANT</span>
+                    <img src="images/avant2.jpg" alt="Photo avant retouche" loading="lazy">
+                </div>
+                <div class="gallery-caption before">Ambiance froide, manque de vie</div>
             </div>
-            <div class="gallery-item">
-                <span class="gallery-label label-after">✨ APRÈS</span>
-                <img src="images/apres3.png" alt="Photo après retouche" loading="lazy">
+            <div>
+                <div class="gallery-item">
+                    <span class="gallery-label label-after">✨ APRÈS</span>
+                    <img src="images/apres2.png" alt="Photo après retouche" loading="lazy">
+                </div>
+                <div class="gallery-caption after">Chaleureux, accueillant, professionnel</div>
+            </div>
+            
+            <div>
+                <div class="gallery-item">
+                    <span class="gallery-label label-before">❌ AVANT</span>
+                    <img src="images/avant3.jpg" alt="Photo avant retouche" loading="lazy">
+                </div>
+                <div class="gallery-caption before">Ciel terne, couleurs fades</div>
+            </div>
+            <div>
+                <div class="gallery-item">
+                    <span class="gallery-label label-after">✨ APRÈS</span>
+                    <img src="images/apres3.png" alt="Photo après retouche" loading="lazy">
+                </div>
+                <div class="gallery-caption after">Éclatant, moderne, envie d'entrer</div>
             </div>
         </div>
         
+        <div style="text-align: center; margin-bottom: 30px;">
+            <p style="font-size: 18px; color: #667eea; font-weight: 600; font-style: italic;">
+                "Des photos qui donnent envie d'entrer dans l'annonce."
+            </p>
+        </div>
+        
         <div style="text-align: center;">
-            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20recevoir%20une%20preview%20gratuite%20pour%20ma%20photo%20immobilière.%20📸" class="cta-primary">
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20voir%20ma%20preview%20gratuite%20maintenant.%20📸" class="cta-primary">
                 📱 Tester sur ma photo
             </a>
         </div>
@@ -603,10 +766,10 @@
                     <div class="impact-header">❌ Photos non optimisées</div>
                     <img src="images/avant1.jpg" alt="Photo avant" class="impact-image">
                     <div class="impact-stats">
-                        ⏳ En ligne depuis 4 mois<br>
-                        👀 45 vues<br>
-                        🏠 2 visites<br>
-                        💬 Aucune offre
+                        <div class="stat-bad">⏳ En ligne depuis 4 mois</div>
+                        <div class="stat-bad">👀 45 vues</div>
+                        <div class="stat-bad">🏠 2 visites</div>
+                        <div class="stat-bad">💬 Aucune offre</div>
                     </div>
                 </div>
 
@@ -614,10 +777,10 @@
                     <div class="impact-header">✅ Photos retouchées pro</div>
                     <img src="images/apres1.png" alt="Photo après" class="impact-image">
                     <div class="impact-stats">
-                        🚀 Vendue en 3 semaines<br>
-                        👀 380 vues<br>
-                        🏠 18 visites<br>
-                        💰 Prix atteint
+                        <div class="stat-good">🚀 Vendue en 3 semaines</div>
+                        <div class="stat-good">👀 380 vues (+735%)</div>
+                        <div class="stat-good">🏠 18 visites (+800%)</div>
+                        <div class="stat-good">💰 Prix atteint</div>
                     </div>
                 </div>
             </div>
@@ -628,15 +791,37 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- TESTIMONIALS -->
     <section class="section">
+        <h2 class="section-title">Ils recommandent ImmoBoost Pro</h2>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"J'ai vendu ma maison en 10 jours. Les photos retouchées ont été un vrai game changer. Merci !"</p>
+                <p class="testimonial-author">— Louise, particulier</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Service rapide, qualité pro, prix imbattable. Je recommande à tous mes clients."</p>
+                <p class="testimonial-author">— Marc, agent immobilier</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Parfait pour mes annonces. Les photos ressortent vraiment mieux sur Leboncoin et SeLoger."</p>
+                <p class="testimonial-author">— Sarah, particulier</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" style="background: #f8fafc;">
         <h2 class="section-title">Comment ça marche ?</h2>
         <p class="steps-intro">Un process simple, déjà utilisé par nos clients et agences partenaires.</p>
         
         <div class="step-card">
             <div class="step-number">1️⃣</div>
             <h3>Envoyez votre photo</h3>
-            <p>📲 Via WhatsApp, comme nos clients actuels</p>
+            <p>📲 Via WhatsApp, comme nos clients actuels<br><small style="color: #22c55e;">Certaines previews arrivent en moins de 4h</small></p>
         </div>
         
         <div class="step-card">
@@ -668,14 +853,47 @@
                 <li>✔️ Garantie satisfait ou remboursé</li>
             </ul>
             
-            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20recevoir%20une%20preview%20gratuite%20pour%20ma%20photo%20immobilière.%20📸" class="cta-primary">
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20voir%20ma%20preview%20gratuite%20maintenant.%20📸" class="cta-primary">
                 🔥 Tester gratuitement sur ma photo
             </a>
         </div>
     </section>
 
-    <!-- TRUST -->
+    <!-- COMPARISON -->
     <section class="section" style="background: #f8fafc;">
+        <h2 class="section-title">Comparez vs le marché</h2>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ImmoBoost Pro</strong></td>
+                        <td><span class="price-highlight">3,99€</span></td>
+                    </tr>
+                    <tr>
+                        <td>Graphiste freelance</td>
+                        <td style="color: #64748b;">25-40€</td>
+                    </tr>
+                    <tr>
+                        <td>Éditeur pro classique</td>
+                        <td style="color: #64748b;">30-60€</td>
+                    </tr>
+                    <tr>
+                        <td>Agence photo immo</td>
+                        <td style="color: #64748b;">50-100€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="section">
         <div class="trust-grid">
             <div class="trust-badge">
                 <h3>🎨 Graphiste spécialisé immobilier</h3>
@@ -703,5 +921,21 @@
         <p>📱 WhatsApp: +33 7 60 12 55 98</p>
         <p style="margin-top: 30px; opacity: 0.6;">&copy; 2026 ImmoBoost Pro - Graphiste spécialisé immobilier</p>
     </footer>
+
+    <script>
+        // CTA Sticky sur mobile
+        window.addEventListener('scroll', function() {
+            const ctaSticky = document.getElementById('ctaSticky');
+            const heroHeight = document.querySelector('.hero').offsetHeight;
+            
+            if (window.innerWidth < 768) {
+                if (window.scrollY > heroHeight) {
+                    ctaSticky.classList.add('visible');
+                } else {
+                    ctaSticky.classList.remove('visible');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
