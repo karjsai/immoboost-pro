@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImmoBoost Pro - Vendez 3x plus vite avec des photos pro</title>
-    <meta name="description" content="Retouches photo immobilières par graphiste spécialisé. Preview gratuite. 3,99€ seulement si satisfait.">
+    <meta name="description" content="Retouches photo immobilières par graphiste spécialisé. Photo améliorée gratuite. 3,99€ seulement si satisfait.">
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -189,7 +189,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* STATS BAR - AVEC EMOJIS */
+        /* STATS BAR */
         .stats-bar {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -283,6 +283,17 @@
             margin-bottom: 30px;
         }
 
+        /* PRO TOOLS BANNER */
+        .pro-tools-banner {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
         /* GALLERY */
         .gallery-grid {
             display: grid;
@@ -354,8 +365,8 @@
         
         .gallery-caption {
             text-align: center;
-            padding: 10px;
-            font-size: 12px;
+            padding: 12px;
+            font-size: 14px;
             font-weight: 600;
             background: #f8fafc;
             border-radius: 0 0 16px 16px;
@@ -458,7 +469,7 @@
 
         /* COMPARISON TABLE */
         .comparison-table {
-            max-width: 600px;
+            max-width: 700px;
             margin: 30px auto;
             background: white;
             border-radius: 16px;
@@ -474,15 +485,15 @@
         .comparison-table th {
             background: #667eea;
             color: white;
-            padding: 10px;
-            font-size: 14px;
+            padding: 14px;
+            font-size: 16px;
         }
         
         .comparison-table td {
-            padding: 10px;
+            padding: 14px;
             text-align: center;
             border-bottom: 1px solid #e2e8f0;
-            font-size: 13px;
+            font-size: 15px;
         }
         
         .comparison-table tr:first-child td {
@@ -494,17 +505,9 @@
         }
         
         .price-highlight {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 800;
             color: #22c55e;
-        }
-        
-        .comparison-note {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #667eea;
-            font-weight: 600;
         }
 
         /* TESTIMONIALS */
@@ -548,13 +551,6 @@
         }
 
         /* STEPS */
-        .steps-intro {
-            text-align: center;
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 30px;
-        }
-        
         .step-card {
             text-align: center;
             padding: 25px 18px;
@@ -612,12 +608,6 @@
         
         .price-tag small {
             font-size: 24px;
-        }
-        
-        .price-note {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-bottom: 25px;
         }
         
         .features-list {
@@ -723,6 +713,9 @@
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .gallery-caption {
+                font-size: 15px;
+            }
             .impact-boxes {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -748,7 +741,7 @@
 </head>
 <body>
     <!-- BOUTON WHATSAPP FLOTTANT -->
-    <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20preview%20retouchée%20gratuitement.%20📸" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+    <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20photo%20améliorée%20gratuitement.%20📸" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
         <svg viewBox="0 0 32 32" fill="currentColor" width="45" height="45">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.923 0-7.435 6.049-13.485 13.485-13.485s13.485 6.049 13.485 13.485c0 7.436-6.049 13.485-13.485 13.485zM21.858 18.868c-0.377-0.189-2.229-1.099-2.574-1.225-0.346-0.125-0.598-0.189-0.849 0.189-0.251 0.377-0.975 1.225-1.196 1.476s-0.441 0.283-0.818 0.094c-0.377-0.189-1.593-0.587-3.033-1.872-1.121-1-1.879-2.237-2.099-2.614s-0.024-0.581 0.166-0.77c0.17-0.166 0.377-0.441 0.565-0.661 0.189-0.22 0.251-0.377 0.377-0.628 0.125-0.251 0.063-0.472-0.031-0.661s-0.849-2.043-1.162-2.8c-0.304-0.735-0.613-0.637-0.849-0.649-0.22-0.011-0.472-0.013-0.723-0.013s-0.661 0.094-1.008 0.472c-0.346 0.377-1.321 1.288-1.321 3.142s1.351 3.645 1.54 3.896c0.189 0.251 2.647 4.041 6.41 5.667 0.895 0.387 1.593 0.617 2.138 0.791 0.898 0.283 1.717 0.245 2.363 0.148 0.721-0.108 2.229-0.912 2.543-1.791s0.314-1.635 0.22-1.791c-0.094-0.157-0.346-0.251-0.723-0.441z"/>
         </svg>
@@ -756,8 +749,8 @@
 
     <!-- CTA STICKY MOBILE -->
     <div class="cta-sticky" id="ctaSticky">
-        <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20preview%20retouchée%20gratuitement.%20📸" class="cta-primary">
-            📱 Obtenir ma preview gratuite
+        <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20photo%20améliorée%20gratuitement.%20📸" class="cta-primary">
+            📱 Obtenir ma photo améliorée gratuitement
         </a>
     </div>
 
@@ -769,26 +762,31 @@
             <p class="value">Retouches par graphiste spécialisé • 3,99€/photo</p>
             
             <div class="hero-bullets">
-                <div class="hero-bullet">👀 Preview gratuite</div>
+                <div class="hero-bullet">🎁 Photo améliorée gratuite</div>
                 <div class="hero-bullet">⚡ Livraison < 2h</div>
                 <div class="hero-bullet">✅ Zéro risque</div>
             </div>
             
-            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20preview%20retouchée%20gratuitement.%20📸" class="cta-primary">
-                🚀 Obtenir ma preview gratuite
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20photo%20améliorée%20gratuitement.%20📸" class="cta-primary">
+                🚀 Obtenir ma photo améliorée gratuitement
             </a>
             
             <p class="cta-secondary">Paiement uniquement si satisfait</p>
         </div>
     </section>
 
-    <!-- STATS BAR - AVEC EMOJIS -->
+    <!-- PRO TOOLS BANNER -->
+    <div class="pro-tools-banner">
+        🏢 Mêmes outils utilisés par les agents immobiliers professionnels, à moindre coût
+    </div>
+
+    <!-- STATS BAR -->
     <section class="stats-bar">
         <div class="stats-grid">
             <div class="stat-item">
-                <span class="stat-emoji">👁️</span>
+                <span class="stat-emoji">🏠</span>
                 <div class="stat-number">+80%</div>
-                <div class="stat-label">d'engagement</div>
+                <div class="stat-label">de visites du bien</div>
             </div>
             <div class="stat-item">
                 <span class="stat-emoji">🖱️</span>
@@ -798,15 +796,15 @@
             <div class="stat-item">
                 <span class="stat-emoji">📞</span>
                 <div class="stat-number">+60%</div>
-                <div class="stat-label">de demandes</div>
+                <div class="stat-label">d'appels</div>
             </div>
         </div>
     </section>
 
-    <!-- IMPACT - TITRE AVEC EFFET -->
+    <!-- IMPACT -->
     <section class="section" style="background: #f8fafc;">
         <div class="impact-container">
-            <h2 class="section-title impact-title">Une photo pro peut tout changer</h2>
+            <h2 class="section-title impact-title">Des photos professionnelles qui font vendre</h2>
             <p class="impact-intro">Même bien. Même prix.<br><strong>Une seule différence : la qualité des photos.</strong></p>
             
             <div class="impact-boxes">
@@ -922,18 +920,17 @@
     <!-- HOW IT WORKS -->
     <section class="section">
         <h2 class="section-title">Comment ça marche ?</h2>
-        <p class="steps-intro">Process simple, déjà utilisé par nos clients</p>
         
         <div class="step-card">
             <div class="step-number">1️⃣</div>
-            <h3>Envoyez</h3>
-            <p>📲 Via WhatsApp</p>
+            <h3>Envoyez vos photos</h3>
+            <p>📲 Envoyez votre photo ou vos photos à améliorer via WhatsApp</p>
         </div>
         
         <div class="step-card">
             <div class="step-number">2️⃣</div>
-            <h3>Preview gratuite</h3>
-            <p>🎨 Souvent retouché en moins de 2h</p>
+            <h3>Recevez votre photo améliorée</h3>
+            <p>🎨 Vous recevez votre photo améliorée en moins de 2h gratuitement</p>
         </div>
         
         <div class="step-card">
@@ -949,17 +946,14 @@
             <h2 style="font-size: 28px; margin-bottom: 15px;">Un tarif simple</h2>
             <div class="price-old">19,99€</div>
             <div class="price-tag">3,99€ <small>/photo</small></div>
-            <p class="price-note">💡 La plupart de nos clients commencent avec une seule photo</p>
             
             <ul class="features-list">
                 <li>✔️ Retouche par graphiste spécialisé</li>
-                <li>✔️ Preview gratuite avant paiement</li>
-                <li>✔️ Traitement rapide (souvent < 2h)</li>
+                <li>✔️ Photo améliorée gratuite avant paiement</li>
                 <li>✔️ Photos extérieures & intérieures</li>
-                <li>✔️ Garantie satisfait ou remboursé</li>
             </ul>
             
-            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20preview%20retouchée%20gratuitement.%20📸" class="cta-primary">
+            <a href="https://wa.me/33760125598?text=Bonjour%20!%20Je%20souhaite%20obtenir%20ma%20photo%20améliorée%20gratuitement.%20📸" class="cta-primary">
                 🔥 Tester gratuitement
             </a>
         </div>
@@ -967,7 +961,7 @@
 
     <!-- COMPARISON -->
     <section class="section" style="background: #f8fafc;">
-        <h2 class="section-title">30–60€ vs 3,99€</h2>
+        <h2 class="section-title">Comparez avec le marché</h2>
         <div class="comparison-table">
             <table>
                 <thead>
@@ -996,7 +990,6 @@
                 </tbody>
             </table>
         </div>
-        <p class="comparison-note">💡 Valeur perçue jusqu'à 10× supérieure au prix payé</p>
     </section>
 
     <!-- TRUST -->
@@ -1005,10 +998,6 @@
             <div class="trust-badge">
                 <h3>🎨 Graphiste spécialisé</h3>
                 <p>Retouches pro immobilier</p>
-            </div>
-            <div class="trust-badge">
-                <h3>🏢 Agences partenaires</h3>
-                <p>Photos sur les principaux portails</p>
             </div>
             <div class="trust-badge">
                 <h3>🇫🇷 France entière</h3>
