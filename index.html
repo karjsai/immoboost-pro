@@ -18,7 +18,6 @@
             padding-bottom: 80px;
         }
 
-        /* LANGUAGE SELECTOR */
         .lang-selector {
             position: fixed;
             top: 20px;
@@ -53,7 +52,6 @@
             border-color: #667eea;
         }
 
-        /* HERO */
         .hero {
             background-image: url('images/hero-banner.png');
             background-size: cover;
@@ -706,61 +704,28 @@
         }
 
         @media (min-width: 768px) {
-            body {
-                padding-bottom: 0;
-            }
-            .cta-sticky {
-                display: none !important;
-            }
-            .hero {
-                padding: 35px 20px 50px;
-            }
-            .logo {
-                max-width: 400px;
-            }
-            .hero h1 {
-                font-size: 42px;
-            }
-            .hero .value {
-                font-size: 20px;
-            }
-            .section-title {
-                font-size: 36px;
-            }
-            .section-title.impact-title {
-                font-size: 44px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-caption {
-                font-size: 15px;
-            }
-            .impact-boxes {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .impact-image {
-                height: 260px;
-            }
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .whatsapp-float {
-                width: 80px;
-                height: 80px;
-                font-size: 45px;
-            }
+            body { padding-bottom: 0; }
+            .cta-sticky { display: none !important; }
+            .hero { padding: 35px 20px 50px; }
+            .logo { max-width: 400px; }
+            .hero h1 { font-size: 42px; }
+            .hero .value { font-size: 20px; }
+            .section-title { font-size: 36px; }
+            .section-title.impact-title { font-size: 44px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-caption { font-size: 15px; }
+            .impact-boxes { grid-template-columns: repeat(2, 1fr); }
+            .impact-image { height: 260px; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .whatsapp-float { width: 80px; height: 80px; font-size: 45px; }
         }
         
         @media (min-width: 1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
-    <!-- LANGUAGE SELECTOR -->
     <div class="lang-selector">
         <button class="lang-btn active" onclick="setLanguage('fr')" data-lang="fr">🇫🇷 FR</button>
         <button class="lang-btn" onclick="setLanguage('en')" data-lang="en">🇬🇧 EN</button>
@@ -768,21 +733,18 @@
         <button class="lang-btn" onclick="setLanguage('de')" data-lang="de">🇩🇪 DE</button>
     </div>
 
-    <!-- BOUTON WHATSAPP FLOTTANT -->
     <a href="https://wa.me/33760125598" class="whatsapp-float" target="_blank" data-label="Contact" id="whatsappBtn">
         <svg viewBox="0 0 32 32" fill="currentColor" width="45" height="45">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.923 0-7.435 6.049-13.485 13.485-13.485s13.485 6.049 13.485 13.485c0 7.436-6.049 13.485-13.485 13.485zM21.858 18.868c-0.377-0.189-2.229-1.099-2.574-1.225-0.346-0.125-0.598-0.189-0.849 0.189-0.251 0.377-0.975 1.225-1.196 1.476s-0.441 0.283-0.818 0.094c-0.377-0.189-1.593-0.587-3.033-1.872-1.121-1-1.879-2.237-2.099-2.614s-0.024-0.581 0.166-0.77c0.17-0.166 0.377-0.441 0.565-0.661 0.189-0.22 0.251-0.377 0.377-0.628 0.125-0.251 0.063-0.472-0.031-0.661s-0.849-2.043-1.162-2.8c-0.304-0.735-0.613-0.637-0.849-0.649-0.22-0.011-0.472-0.013-0.723-0.013s-0.661 0.094-1.008 0.472c-0.346 0.377-1.321 1.288-1.321 3.142s1.351 3.645 1.54 3.896c0.189 0.251 2.647 4.041 6.41 5.667 0.895 0.387 1.593 0.617 2.138 0.791 0.898 0.283 1.717 0.245 2.363 0.148 0.721-0.108 2.229-0.912 2.543-1.791s0.314-1.635 0.22-1.791c-0.094-0.157-0.346-0.251-0.723-0.441z"/>
         </svg>
     </a>
 
-    <!-- CTA STICKY MOBILE -->
     <div class="cta-sticky" id="ctaSticky">
         <a href="https://wa.me/33760125598" class="cta-primary" id="ctaStickyLink">
             📱 <span data-i18n="cta"></span>
         </a>
     </div>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <img src="images/logo.png" alt="ImmoBoost Pro" class="logo">
@@ -803,10 +765,8 @@
         </div>
     </section>
 
-    <!-- PRO TOOLS BANNER -->
     <div class="pro-tools-banner" data-i18n="pro_banner"></div>
 
-    <!-- STATS BAR -->
     <section class="stats-bar">
         <div class="stats-grid">
             <div class="stat-item">
@@ -827,7 +787,6 @@
         </div>
     </section>
 
-    <!-- IMPACT -->
     <section class="section" style="background: #f8fafc;">
         <div class="impact-container">
             <h2 class="section-title impact-title" data-i18n="impact_title"></h2>
@@ -861,7 +820,6 @@
         </div>
     </section>
 
-    <!-- GALLERY -->
     <section class="section">
         <h2 class="section-title" data-i18n="gallery_title"></h2>
         <p class="section-subtitle" data-i18n="gallery_subtitle"></p>
@@ -871,14 +829,14 @@
             <div>
                 <div class="gallery-item">
                     <span class="gallery-label label-before" data-i18n="label_before"></span>
-                    <img src="images/avant1.jpg" alt="Photo avant retouche" loading="lazy">
+                    <img src="images/avant1.jpg" alt="Photo avant" loading="lazy">
                 </div>
                 <div class="gallery-caption before" data-i18n="caption1"></div>
             </div>
             <div>
                 <div class="gallery-item">
                     <span class="gallery-label label-after" data-i18n="label_after"></span>
-                    <img src="images/apres1.png" alt="Photo après retouche" loading="lazy">
+                    <img src="images/apres1.png" alt="Photo après" loading="lazy">
                 </div>
                 <div class="gallery-caption after" data-i18n="caption2"></div>
             </div>
@@ -886,14 +844,14 @@
             <div>
                 <div class="gallery-item">
                     <span class="gallery-label label-before" data-i18n="label_before"></span>
-                    <img src="images/avant2.jpg" alt="Photo avant retouche" loading="lazy">
+                    <img src="images/avant2.jpg" alt="Photo avant" loading="lazy">
                 </div>
                 <div class="gallery-caption before" data-i18n="caption3"></div>
             </div>
             <div>
                 <div class="gallery-item">
                     <span class="gallery-label label-after" data-i18n="label_after"></span>
-                    <img src="images/apres2.png" alt="Photo après retouche" loading="lazy">
+                    <img src="images/apres2.png" alt="Photo après" loading="lazy">
                 </div>
                 <div class="gallery-caption after" data-i18n="caption4"></div>
             </div>
@@ -901,21 +859,20 @@
             <div>
                 <div class="gallery-item">
                     <span class="gallery-label label-before" data-i18n="label_before"></span>
-                    <img src="images/avant3.jpg" alt="Photo avant retouche" loading="lazy">
+                    <img src="images/avant3.jpg" alt="Photo avant" loading="lazy">
                 </div>
                 <div class="gallery-caption before" data-i18n="caption5"></div>
             </div>
             <div>
                 <div class="gallery-item">
                     <span class="gallery-label label-after" data-i18n="label_after"></span>
-                    <img src="images/apres3.png" alt="Photo après retouche" loading="lazy">
+                    <img src="images/apres3.png" alt="Photo après" loading="lazy">
                 </div>
                 <div class="gallery-caption after" data-i18n="caption6"></div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="section" style="background: #f8fafc;">
         <h2 class="section-title" data-i18n="testimonial_title"></h2>
         <div class="testimonials">
@@ -941,7 +898,6 @@
         <p class="trust-note" data-i18n="trust_note"></p>
     </section>
 
-    <!-- HOW IT WORKS -->
     <section class="section">
         <h2 class="section-title" data-i18n="how_title"></h2>
         
@@ -964,7 +920,6 @@
         </div>
     </section>
 
-    <!-- PRICING -->
     <section class="pricing-section">
         <div class="price-container">
             <h2 style="font-size: 28px; margin-bottom: 15px;" data-i18n="price_title"></h2>
@@ -983,7 +938,6 @@
         </div>
     </section>
 
-    <!-- COMPARISON -->
     <section class="section" style="background: #f8fafc;">
         <h2 class="section-title" data-i18n="compare_title"></h2>
         <div class="comparison-table">
@@ -1016,7 +970,6 @@
         </div>
     </section>
 
-    <!-- TRUST -->
     <section class="section">
         <div class="trust-grid">
             <div class="trust-badge">
@@ -1034,7 +987,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <img src="images/logo.png" alt="ImmoBoost Pro" class="footer-logo">
         <p data-i18n="footer_desc"></p>
@@ -1043,8 +995,7 @@
     </footer>
 
     <script>
-        // TRADUCTIONS
-        const translations = {
+        const t = {
             fr: {
                 hero_title: "Vendez votre bien 3x plus vite avec des photos professionnelles",
                 hero_value: "Retouches par graphiste spécialisé • 3,99€/photo",
@@ -1158,21 +1109,21 @@
                 test_type1: "👤 Individual",
                 test_type2: "🏢 Real estate agent",
                 test1: "\"Sold in 10 days — perfect for listings.\"",
-                test2: "\"Great boost on listings, my clients love it.\"",
+                test2: "\"Great boost, my clients love it.\"",
                 test3: "\"Photos really stand out better. Thanks!\"",
                 trust_note: "Used by individuals and real estate agencies",
                 how_title: "How it works?",
                 step1_title: "Send your photos",
-                step1_desc: "📲 Send your photo(s) to enhance via WhatsApp",
+                step1_desc: "📲 Send your photo(s) via WhatsApp",
                 step2_title: "Receive your enhanced photo",
-                step2_desc: "🎨 You receive your enhanced photo in less than 2h for free",
+                step2_desc: "🎨 You receive your photo in less than 2h for free",
                 step3_title: "You decide",
                 step3_desc: "😍 Convinced? Pay €3.99<br>❌ Not convinced? You pay nothing",
                 price_title: "Simple pricing",
                 price_old: "€19.99",
                 price_new: "€3.99",
                 price_unit: "/photo",
-                feature1: "✔️ Retouching by specialized graphic designer",
+                feature1: "✔️ Retouching by specialized designer",
                 feature2: "✔️ Free enhanced photo before payment",
                 feature3: "✔️ Exterior & interior photos",
                 cta_test: "Test for free",
@@ -1199,15 +1150,15 @@
                 bullet3: "✅ Cero riesgo",
                 cta: "Obtener mi foto mejorada gratis",
                 cta_secondary: "Pago solo si está satisfecho",
-                pro_banner: "🏢 Mismas herramientas utilizadas por agentes inmobiliarios profesionales, a menor costo",
-                stat1: "visitas a la propiedad",
+                pro_banner: "🏢 Mismas herramientas utilizadas por agentes profesionales, a menor costo",
+                stat1: "visitas",
                 stat2: "clics",
                 stat3: "llamadas",
                 impact_title: "Fotos profesionales que venden",
-                impact_intro: "Misma propiedad. Mismo precio.<br><strong>Solo una diferencia: la calidad de las fotos.</strong>",
+                impact_intro: "Misma propiedad. Mismo precio.<br><strong>Solo una diferencia: la calidad.</strong>",
                 impact_before_title: "❌ Fotos no optimizadas",
                 impact_after_title: "✅ Fotos retocadas pro",
-                impact_stat1: "⏳ En línea desde hace 4 meses",
+                impact_stat1: "⏳ En línea 4 meses",
                 impact_stat2: "👀 45 vistas",
                 impact_stat3: "🏠 2 visitas",
                 impact_stat4: "💬 Sin ofertas",
@@ -1216,9 +1167,9 @@
                 impact_stat7: "🏠 18 visitas (+800%)",
                 impact_stat8: "💰 Precio alcanzado",
                 punchline: "📈 Hasta 3 veces más visitas observadas por nuestros clientes",
-                gallery_title: "Nuestras realizaciones para nuestros clientes",
-                gallery_subtitle: "Retoques profesionales que hemos realizado",
-                gallery_micro: "🎨 Brillo • Colores • Nitidez • Perspectiva<br>Retoques realistas • Fotos exteriores e interiores",
+                gallery_title: "Nuestras realizaciones",
+                gallery_subtitle: "Retoques profesionales",
+                gallery_micro: "🎨 Brillo • Colores • Nitidez<br>Retoques realistas",
                 label_before: "❌ ANTES",
                 label_after: "✨ DESPUÉS",
                 caption1: "Oscuro → Luminoso",
@@ -1229,58 +1180,58 @@
                 caption6: "Moderno, acogedor",
                 testimonial_title: "Recomiendan ImmoBoost Pro",
                 test_type1: "👤 Particular",
-                test_type2: "🏢 Agente inmobiliario",
-                test1: "\"Vendido en 10 días — perfecto para anuncios.\"",
-                test2: "\"Gran impulso en los anuncios, a mis clientes les encanta.\"",
+                test_type2: "🏢 Agente",
+                test1: "\"Vendido en 10 días — perfecto.\"",
+                test2: "\"Gran impulso, a mis clientes les encanta.\"",
                 test3: "\"Las fotos destacan mucho mejor. ¡Gracias!\"",
-                trust_note: "Utilizado por particulares y agencias inmobiliarias",
+                trust_note: "Utilizado por particulares y agencias",
                 how_title: "¿Cómo funciona?",
                 step1_title: "Envíe sus fotos",
-                step1_desc: "📲 Envíe su(s) foto(s) para mejorar por WhatsApp",
-                step2_title: "Reciba su foto mejorada",
-                step2_desc: "🎨 Recibe su foto mejorada en menos de 2h gratis",
+                step1_desc: "📲 Envíe por WhatsApp",
+                step2_title: "Reciba su foto",
+                step2_desc: "🎨 En menos de 2h gratis",
                 step3_title: "Usted decide",
-                step3_desc: "😍 ¿Convencido? Pague 3,99€<br>❌ ¿No convencido? No paga nada",
+                step3_desc: "😍 ¿Convencido? Pague 3,99€<br>❌ No paga nada",
                 price_title: "Tarifa simple",
                 price_old: "19,99€",
                 price_new: "3,99€",
                 price_unit: "/foto",
-                feature1: "✔️ Retoque por diseñador gráfico especializado",
-                feature2: "✔️ Foto mejorada gratis antes del pago",
+                feature1: "✔️ Retoque profesional",
+                feature2: "✔️ Foto gratis antes del pago",
                 feature3: "✔️ Fotos exteriores e interiores",
                 cta_test: "Probar gratis",
-                compare_title: "Compare con el mercado",
+                compare_title: "Compare",
                 table_service: "Servicio",
                 table_price: "Precio",
                 competitor1: "Diseñador freelance",
-                competitor2: "Editor profesional clásico",
-                competitor3: "Agencia de fotos inmobiliarias",
+                competitor2: "Editor profesional",
+                competitor3: "Agencia de fotos",
                 trust1_title: "🎨 Diseñador especializado",
-                trust1_desc: "Retoques pro inmobiliarios",
+                trust1_desc: "Retoques profesionales",
                 trust2_title: "🌍 Mundial",
                 trust2_desc: "Disponible en todas partes",
                 trust3_title: "🔒 Pago seguro",
                 trust3_desc: "Sin riesgo",
-                footer_desc: "Retoque profesional de fotos inmobiliarias",
+                footer_desc: "Retoque profesional de fotos",
                 footer_phone: "📱 WhatsApp: +33 7 60 12 55 98"
             },
             de: {
                 hero_title: "Verkaufen Sie Ihre Immobilie 3x schneller mit professionellen Fotos",
                 hero_value: "Retusche durch spezialisierten Grafikdesigner • 3,99€/Foto",
-                bullet1: "🎁 Kostenloses verbessertes Foto",
+                bullet1: "🎁 Kostenloses Foto",
                 bullet2: "⚡ Lieferung < 2h",
                 bullet3: "✅ Null Risiko",
-                cta: "Mein kostenloses verbessertes Foto erhalten",
+                cta: "Mein kostenloses Foto erhalten",
                 cta_secondary: "Zahlung nur bei Zufriedenheit",
-                pro_banner: "🏢 Gleiche Tools wie professionelle Immobilienmakler, zu geringeren Kosten",
-                stat1: "Immobilienbesuche",
+                pro_banner: "🏢 Gleiche Tools wie professionelle Makler, zu geringeren Kosten",
+                stat1: "Besuche",
                 stat2: "Klicks",
                 stat3: "Anrufe",
                 impact_title: "Professionelle Fotos, die verkaufen",
                 impact_intro: "Gleiche Immobilie. Gleicher Preis.<br><strong>Nur ein Unterschied: die Fotoqualität.</strong>",
-                impact_before_title: "❌ Nicht optimierte Fotos",
-                impact_after_title: "✅ Professionell retuschierte Fotos",
-                impact_stat1: "⏳ Seit 4 Monaten online",
+                impact_before_title: "❌ Nicht optimiert",
+                impact_after_title: "✅ Professionell retuschiert",
+                impact_stat1: "⏳ 4 Monate online",
                 impact_stat2: "👀 45 Aufrufe",
                 impact_stat3: "🏠 2 Besuche",
                 impact_stat4: "💬 Keine Angebote",
@@ -1289,129 +1240,93 @@
                 impact_stat7: "🏠 18 Besuche (+800%)",
                 impact_stat8: "💰 Preis erreicht",
                 punchline: "📈 Bis zu 3x mehr Besuche von unseren Kunden beobachtet",
-                gallery_title: "Unsere Arbeiten für unsere Kunden",
-                gallery_subtitle: "Professionelle Retuschen, die wir durchgeführt haben",
-                gallery_micro: "🎨 Helligkeit • Farben • Schärfe • Perspektive<br>Realistische Retuschen • Außen- & Innenfotos",
+                gallery_title: "Unsere Arbeiten",
+                gallery_subtitle: "Professionelle Retuschen",
+                gallery_micro: "🎨 Helligkeit • Farben • Schärfe<br>Realistische Retuschen",
                 label_before: "❌ VORHER",
                 label_after: "✨ NACHHER",
                 caption1: "Dunkel → Hell",
-                caption2: "Attraktiver blauer Himmel",
+                caption2: "Attraktiver Himmel",
                 caption3: "Trüber Himmel → Lebendig",
                 caption4: "Verkaufsfoto",
                 caption5: "Verblasstes Foto",
                 caption6: "Modern, einladend",
                 testimonial_title: "Sie empfehlen ImmoBoost Pro",
                 test_type1: "👤 Privatperson",
-                test_type2: "🏢 Immobilienmakler",
-                test1: "\"In 10 Tagen verkauft — perfekt für Anzeigen.\"",
-                test2: "\"Großer Schub bei Anzeigen, meine Kunden lieben es.\"",
-                test3: "\"Die Fotos stechen wirklich besser hervor. Danke!\"",
-                trust_note: "Verwendet von Privatpersonen und Immobilienagenturen",
+                test_type2: "🏢 Makler",
+                test1: "\"In 10 Tagen verkauft — perfekt.\"",
+                test2: "\"Großer Schub, meine Kunden lieben es.\"",
+                test3: "\"Die Fotos stechen besser hervor. Danke!\"",
+                trust_note: "Verwendet von Privatpersonen und Agenturen",
                 how_title: "Wie funktioniert es?",
                 step1_title: "Senden Sie Ihre Fotos",
-                step1_desc: "📲 Senden Sie Ihr(e) Foto(s) zur Verbesserung per WhatsApp",
-                step2_title: "Erhalten Sie Ihr verbessertes Foto",
-                step2_desc: "🎨 Sie erhalten Ihr verbessertes Foto in weniger als 2h kostenlos",
+                step1_desc: "📲 Per WhatsApp senden",
+                step2_title: "Erhalten Sie Ihr Foto",
+                step2_desc: "🎨 In weniger als 2h kostenlos",
                 step3_title: "Sie entscheiden",
-                step3_desc: "😍 Überzeugt? Zahlen Sie 3,99€<br>❌ Nicht überzeugt? Sie zahlen nichts",
+                step3_desc: "😍 Überzeugt? Zahlen Sie 3,99€<br>❌ Sie zahlen nichts",
                 price_title: "Einfache Preisgestaltung",
                 price_old: "19,99€",
                 price_new: "3,99€",
                 price_unit: "/Foto",
-                feature1: "✔️ Retusche durch spezialisierten Grafikdesigner",
-                feature2: "✔️ Kostenloses verbessertes Foto vor Zahlung",
+                feature1: "✔️ Professionelle Retusche",
+                feature2: "✔️ Kostenloses Foto vor Zahlung",
                 feature3: "✔️ Außen- & Innenfotos",
                 cta_test: "Kostenlos testen",
-                compare_title: "Mit dem Markt vergleichen",
+                compare_title: "Vergleichen",
                 table_service: "Service",
                 table_price: "Preis",
                 competitor1: "Freiberuflicher Designer",
-                competitor2: "Klassischer Profi-Editor",
-                competitor3: "Immobilienfotoagentur",
+                competitor2: "Profi-Editor",
+                competitor3: "Fotoagentur",
                 trust1_title: "🎨 Spezialisierter Designer",
-                trust1_desc: "Professionelle Immobilienretusche",
+                trust1_desc: "Professionelle Retuschen",
                 trust2_title: "🌍 Weltweit",
                 trust2_desc: "Überall verfügbar",
                 trust3_title: "🔒 Sichere Zahlung",
                 trust3_desc: "Kein Risiko",
-                footer_desc: "Professionelle Immobilienfoto-Retusche",
+                footer_desc: "Professionelle Fotoret usche",
                 footer_phone: "📱 WhatsApp: +33 7 60 12 55 98"
             }
         };
 
-        // Langue par défaut
         let currentLang = 'fr';
-
-        // Détection langue navigateur
         const browserLang = navigator.language.split('-')[0];
-        if (translations[browserLang]) {
-            currentLang = browserLang;
-        }
-
-        // URL parameter override
+        if (t[browserLang]) currentLang = browserLang;
         const urlParams = new URLSearchParams(window.location.search);
         const urlLang = urlParams.get('lang');
-        if (urlLang && translations[urlLang]) {
-            currentLang = urlLang;
-        }
+        if (urlLang && t[urlLang]) currentLang = urlLang;
 
         function setLanguage(lang) {
             currentLang = lang;
-            
-            // Update tous les textes
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
+                if (t[lang][key]) el.innerHTML = t[lang][key];
             });
-            
-            // Update buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                }
+                if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
             });
-            
-            // Update WhatsApp messages
-            const whatsappMsg = {
+            const msgs = {
                 fr: "Bonjour ! Je souhaite obtenir ma photo améliorée gratuitement.",
                 en: "Hello! I would like to get my free enhanced photo.",
                 es: "¡Hola! Me gustaría obtener mi foto mejorada gratis.",
-                de: "Hallo! Ich möchte mein kostenloses verbessertes Foto erhalten."
+                de: "Hallo! Ich möchte mein kostenloses Foto erhalten."
             };
-            
-            const whatsappLinks = document.querySelectorAll('a[href^="https://wa.me"]');
-            whatsappLinks.forEach(link => {
-                link.href = `https://wa.me/33760125598?text=${encodeURIComponent(whatsappMsg[lang])}`;
+            document.querySelectorAll('a[href^="https://wa.me"]').forEach(link => {
+                link.href = `https://wa.me/33760125598?text=${encodeURIComponent(msgs[lang])}`;
             });
-            
-            // Update WhatsApp button label
-            const whatsappLabels = {
-                fr: "Contacte",
-                en: "Contact",
-                es: "Contacto",
-                de: "Kontakt"
-            };
-            document.getElementById('whatsappBtn').setAttribute('data-label', whatsappLabels[lang]);
-            
-            // Update URL
+            const labels = { fr: "Contacte", en: "Contact", es: "Contacto", de: "Kontakt" };
+            document.getElementById('whatsappBtn').setAttribute('data-label', labels[lang]);
             const newUrl = new URL(window.location);
             newUrl.searchParams.set('lang', lang);
             window.history.pushState({}, '', newUrl);
         }
 
-        // Init au chargement
-        window.addEventListener('DOMContentLoaded', () => {
-            setLanguage(currentLang);
-        });
-
-        // CTA Sticky
+        window.addEventListener('DOMContentLoaded', () => setLanguage(currentLang));
         window.addEventListener('scroll', function() {
             const ctaSticky = document.getElementById('ctaSticky');
             const heroHeight = document.querySelector('.hero').offsetHeight;
-            
             if (window.innerWidth < 768) {
                 if (window.scrollY > heroHeight) {
                     ctaSticky.classList.add('visible');
